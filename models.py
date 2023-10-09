@@ -4,21 +4,18 @@ from sqlalchemy import (
     Column,
     Date,
     Float,
+    MetaData,
     PrimaryKeyConstraint,
     String,
-    Text,
     func,
 )
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+Base = declarative_base(metadata=MetaData(schema="stocks"))
 
 
 class ValidTicker(Base):
     __tablename__ = "valid_tickers"
-
-    # Assuming stocks is a schema in your database.
-    # If it's the default schema, you might not need to specify it.
     __table_args__ = {"schema": "stocks"}
 
     ticker = Column(String(100), primary_key=True)
