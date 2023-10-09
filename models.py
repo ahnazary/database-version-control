@@ -30,12 +30,10 @@ class ValidTicker(Base):
     total_assets = Column(BigInteger)
     validity = Column(Boolean, nullable=False)
 
+
 class TickersList(Base):
-    __tablename__ = 'tickers_list'
-    __table_args__ = (
-        PrimaryKeyConstraint('ticker'),
-        {'schema': 'stocks'}
-    )
+    __tablename__ = "tickers_list"
+    __table_args__ = (PrimaryKeyConstraint("ticker"), {"schema": "stocks"})
 
     ticker = Column(String, nullable=False)
     name = Column(String)
@@ -122,11 +120,12 @@ class IncomeStatement(Base):
     salaries_and_wages = Column(Float)
     excise_taxes = Column(Float)
 
+
 class Financials(Base):
-    __tablename__ = 'financials'
+    __tablename__ = "financials"
     __table_args__ = (
-        PrimaryKeyConstraint('ticker', 'report_date', 'frequency'),
-        {'schema': 'stocks'}
+        PrimaryKeyConstraint("ticker", "report_date", "frequency"),
+        {"schema": "stocks"},
     )
 
     ticker = Column(String(100), nullable=False)
@@ -174,11 +173,12 @@ class Financials(Base):
     total_revenue = Column(Float)
     operating_revenue = Column(Float)
 
+
 class Cashflow(Base):
-    __tablename__ = 'cashflow'
+    __tablename__ = "cashflow"
     __table_args__ = (
-        PrimaryKeyConstraint('ticker', 'report_date', 'frequency'),
-        {'schema': 'stocks'}
+        PrimaryKeyConstraint("ticker", "report_date", "frequency"),
+        {"schema": "stocks"},
     )
 
     ticker = Column(String(100), nullable=False)
@@ -259,11 +259,12 @@ class Cashflow(Base):
     amortization_of_intangibles = Column(Float)
     depreciation = Column(Float)
 
+
 class BalanceSheet(Base):
-    __tablename__ = 'balance_sheet'
+    __tablename__ = "balance_sheet"
     __table_args__ = (
-        PrimaryKeyConstraint('ticker', 'report_date', 'frequency'),
-        {'schema': 'stocks'}
+        PrimaryKeyConstraint("ticker", "report_date", "frequency"),
+        {"schema": "stocks"},
     )
 
     ticker = Column(String(100), nullable=False)
