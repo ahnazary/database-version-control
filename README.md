@@ -14,7 +14,7 @@ Repository for managing changes to the database schema using [alembic](https://a
 
 ### Migration 
 
-Create new migration scripts by running(see [here](https://alembic.sqlalchemy.org/en/latest/tutorial.html#:~:text=Create%20a%20Migration%20Script%C2%B6)):
+Create new migration scripts by running the following command (see [here](https://alembic.sqlalchemy.org/en/latest/tutorial.html#:~:text=Create%20a%20Migration%20Script%C2%B6)):
 
 ```
 alembic revision -m "Some message"
@@ -35,3 +35,23 @@ To apply a migration script relative to the current revision, run:
 ```
 alembic upgrade +1
 ```
+
+## Stamp database version
+
+To stamp the database version (i.e. set the version of databse manually), run:
+
+```
+alemibc stamp <revision>
+```
+
+`<reviison>` can be found at the beggining of each migration script or on the name of the migration script file.
+
+## Downgrade
+
+To downgrade the database to a specific version, run:
+
+```
+alembic downgrade <revision>
+```
+
+`<reviison>` can be found at the beggining of each migration script or on the name of the migration script file.
