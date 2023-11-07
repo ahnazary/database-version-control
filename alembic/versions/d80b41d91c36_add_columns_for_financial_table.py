@@ -20,12 +20,12 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     # Add the folowing columns to the financials table:
-    # otherunder_preferred_stock_dividend 
-    # other_special_charges 
-    # restructuring_and_mergern_acquisition 
-    # general_and_administrative_expense 
-    # other_gand_a 
-    # salaries_and_wages 
+    # otherunder_preferred_stock_dividend
+    # other_special_charges
+    # restructuring_and_mergern_acquisition
+    # general_and_administrative_expense
+    # other_gand_a
+    # salaries_and_wages
 
     op.add_column(
         "financials",
@@ -91,16 +91,18 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     # Drop the folowing columns from the financials table:
-    # otherunder_preferred_stock_dividend 
-    # other_special_charges 
-    # restructuring_and_mergern_acquisition 
-    # general_and_administrative_expense 
-    # other_gand_a 
-    # salaries_and_wages 
+    # otherunder_preferred_stock_dividend
+    # other_special_charges
+    # restructuring_and_mergern_acquisition
+    # general_and_administrative_expense
+    # other_gand_a
+    # salaries_and_wages
 
     op.drop_column("financials", "otherunder_preferred_stock_dividend", schema="stocks")
     op.drop_column("financials", "other_special_charges", schema="stocks")
-    op.drop_column("financials", "restructuring_and_mergern_acquisition", schema="stocks")
+    op.drop_column(
+        "financials", "restructuring_and_mergern_acquisition", schema="stocks"
+    )
     op.drop_column("financials", "general_and_administrative_expense", schema="stocks")
     op.drop_column("financials", "other_gand_a", schema="stocks")
     op.drop_column("financials", "salaries_and_wages", schema="stocks")
