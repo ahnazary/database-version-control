@@ -19,8 +19,23 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    pass
+    # Add following columns:
+    # preferred_shares_number 
+    # preferred_stock_equity 
+    # dividends_payable 
+    # available_for_sale_securities 
+    # cash_equivalents 
+
+    op.add_column('balance_sheet', sa.Column('preferred_shares_number', sa.Float(), nullable=True), schema='stocks')
+    op.add_column('balance_sheet', sa.Column('preferred_stock_equity', sa.Float(), nullable=True), schema='stocks')
+    op.add_column('balance_sheet', sa.Column('dividends_payable', sa.Float(), nullable=True), schema='stocks')
+    op.add_column('balance_sheet', sa.Column('available_for_sale_securities', sa.Float(), nullable=True), schema='stocks')
+    op.add_column('balance_sheet', sa.Column('cash_equivalents', sa.Float(), nullable=True), schema='stocks')
 
 
 def downgrade() -> None:
-    pass
+    op.drop_column('balance_sheet', 'preferred_shares_number', schema='stocks')
+    op.drop_column('balance_sheet', 'preferred_stock_equity', schema='stocks')
+    op.drop_column('balance_sheet', 'dividends_payable', schema='stocks')
+    op.drop_column('balance_sheet', 'available_for_sale_securities', schema='stocks')
+    op.drop_column('balance_sheet', 'cash_equivalents', schema='stocks')
