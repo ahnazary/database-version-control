@@ -1,7 +1,7 @@
 """Baseline
 
 Revision ID: 5683f058b7e0
-Revises: 
+Revises:
 Create Date: 2023-10-10 00:17:11.450127
 
 """
