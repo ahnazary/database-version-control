@@ -18,7 +18,7 @@ sys.path.insert(
 )
 
 
-project = "Database Version Control"
+project = "database-version-control"
 copyright = "2023, Amir Nazary"
 author = "Amir Nazary"
 
