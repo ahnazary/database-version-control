@@ -14,6 +14,12 @@ Repository for managing changes to the database schema using [alembic](https://a
 
 ### Migration 
 
+Change directroy to the proper location, e.g. if migriaon is to be applied to the aiven database, change directory to `aiven`:
+
+```
+alemibc_src/aiven_postgres
+```
+
 Create new migration scripts by running the following command (see [here](https://alembic.sqlalchemy.org/en/latest/tutorial.html#:~:text=Create%20a%20Migration%20Script%C2%B6)):
 
 ```
@@ -55,3 +61,11 @@ alembic downgrade <revision>
 ```
 
 `<reviison>` can be found at the beggining of each migration script or on the name of the migration script file.
+
+# Structure of the migration scripts
+
+This repo manages migration files for multiple databases (e.g. postgres hosted on aiven, neon, etc.). Each database has its own directory under `alembic_src`. Each directory has the following structure:
+
+- `alembic.ini`: Alembic configuration file
+- `alembic/versions`: Alembic migration scripts
+- `models.py`: SQLAlchemy declarative models for tables to create the initial/baseline version for the database.
