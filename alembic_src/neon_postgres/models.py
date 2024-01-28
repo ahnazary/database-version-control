@@ -18,14 +18,22 @@ class ValidTicker(Base):
     __tablename__ = "valid_tickers"
     __table_args__ = {"schema": "stocks"}
 
-    ticker = Column(String(100), primary_key=True)
-    date = Column(Date, default=func.now(), nullable=False)
-    currency_code = Column(String(100))
+    ticker = Column(String, primary_key=True, nullable=False)
+    date = Column('date', Date, nullable=False, default='now()')
+    currency_code = Column(String)
     market_cap = Column(BigInteger)
     total_revenue = Column(BigInteger)
     free_cash_flow = Column(BigInteger)
     total_assets = Column(BigInteger)
     validity = Column(Boolean, nullable=False)
+    balance_sheet_annual_available = Column(Boolean, default=True)
+    cashflow_annual_available = Column(Boolean, default=True)
+    income_stmt_annual_available = Column(Boolean, default=True)
+    financials_annual_available = Column(Boolean, default=True)
+    balance_sheet_quarterly_available = Column(Boolean, default=True)
+    cashflow_quarterly_available = Column(Boolean, default=True)
+    income_stmt_quarterly_available = Column(Boolean, default=True)
+    financials_quarterly_available = Column(Boolean, default=True)
 
 
 class TickersList(Base):
@@ -46,11 +54,11 @@ class IncomeStatement(Base):
         {"schema": "stocks"},
     )
 
-    ticker = Column(String(100), nullable=False)
-    insert_date = Column(Date, nullable=False, default=func.now())
-    report_date = Column(Date, nullable=False)
-    currency_code = Column(String(10))
-    frequency = Column(String(10), nullable=False)
+    ticker = Column(String, primary_key=True, nullable=False)
+    insert_date = Column(Date, nullable=False, default='now()')
+    report_date = Column(Date, primary_key=True, nullable=False)
+    currency_code = Column(String)
+    frequency = Column(String(10), primary_key=True, nullable=False)
     tax_effect_of_unusual_items = Column(Float)
     tax_rate_for_calcs = Column(Float)
     normalized_ebitda = Column(Float)
