@@ -10,7 +10,7 @@ sys.path.insert(
 )
 from alembic import context
 
-from alembic_src.models import Base
+from alembic_src.neon_postgres.models import Base
 
 load_dotenv()
 
