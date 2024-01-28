@@ -8,9 +8,9 @@ from sqlalchemy import engine_from_config, pool
 sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 )
-from alembic_src.neon_postgres.models import Base
-
 from alembic import context
+
+from alembic_src.neon_postgres.models import Base
 
 load_dotenv()
 

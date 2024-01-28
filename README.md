@@ -62,6 +62,15 @@ alembic downgrade <revision>
 
 `<reviison>` can be found at the beggining of each migration script or on the name of the migration script file.
 
+## Create table in models.py (version 0)
+
+To create a table in `models.py` (i.e. create the initial version of the database), run:
+
+```
+alembic revision --autogenerate
+```
+
+
 # Structure of the migration scripts
 
 This repo manages migration files for multiple databases (e.g. postgres hosted on aiven, neon, etc.). Each database has its own directory under `alembic_src`. Each directory has the following structure:

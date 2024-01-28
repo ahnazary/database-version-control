@@ -19,7 +19,7 @@ class ValidTicker(Base):
     __table_args__ = {"schema": "stocks"}
 
     ticker = Column(String, primary_key=True, nullable=False)
-    date = Column('date', Date, nullable=False, default='now()')
+    date = Column("date", Date, nullable=False, default="now()")
     currency_code = Column(String)
     market_cap = Column(BigInteger)
     total_revenue = Column(BigInteger)
@@ -55,7 +55,7 @@ class IncomeStatement(Base):
     )
 
     ticker = Column(String, primary_key=True, nullable=False)
-    insert_date = Column(Date, nullable=False, default='now()')
+    insert_date = Column(Date, nullable=False, default="now()")
     report_date = Column(Date, primary_key=True, nullable=False)
     currency_code = Column(String)
     frequency = Column(String(10), primary_key=True, nullable=False)
@@ -134,7 +134,7 @@ class Financials(Base):
     )
 
     ticker = Column(String, primary_key=True, nullable=False)
-    insert_date = Column(Date, nullable=False, default='now()')
+    insert_date = Column(Date, nullable=False, default="now()")
     report_date = Column(Date, primary_key=True, nullable=False)
     currency_code = Column(String)
     frequency = Column(String(10), primary_key=True, nullable=False)
