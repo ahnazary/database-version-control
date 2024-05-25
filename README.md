@@ -17,7 +17,7 @@ Repository for managing changes to the database schema using [alembic](https://a
 Change directroy to the proper location, e.g. if migriaon is to be applied to the aiven database, change directory to `aiven`:
 
 ```
-alemibc_src/aiven_postgres
+alembic_src/aiven_postgres
 ```
 
 Create new migration scripts by running the following command (see [here](https://alembic.sqlalchemy.org/en/latest/tutorial.html#:~:text=Create%20a%20Migration%20Script%C2%B6)):
