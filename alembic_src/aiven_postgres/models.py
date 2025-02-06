@@ -12,7 +12,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base(metadata=MetaData(schema="stocks"))
+Base = declarative_base(metadata=MetaData(schema="finance"))
 
 
 class ValidTicker(Base):
