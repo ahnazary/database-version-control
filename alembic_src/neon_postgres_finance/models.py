@@ -21,7 +21,7 @@ class IncomeStatement(Base):
         {"schema": "finance"},
     )
 
-    ticker = Column(String(10), nullable=False)
+    ticker = Column(String(20), nullable=False)
     frequency = Column(String(10), nullable=False)
     report_date = Column(Date, nullable=False)
     metric = Column(String(100), nullable=False)
@@ -36,7 +36,7 @@ class CashFlow(Base):
         {"schema": "finance"},
     )
 
-    ticker = Column(String(10), nullable=False)
+    ticker = Column(String(20), nullable=False)
     frequency = Column(String(10), nullable=False)
     report_date = Column(Date, nullable=False)
     metric = Column(String(100), nullable=False)
@@ -51,7 +51,7 @@ class BalanceSheet(Base):
         {"schema": "finance"},
     )
 
-    ticker = Column(String(10), nullable=False)
+    ticker = Column(String(20), nullable=False)
     frequency = Column(String(10), nullable=False)
     report_date = Column(Date, nullable=False)
     metric = Column(String(100), nullable=False)
@@ -66,7 +66,7 @@ class Financials(Base):
         {"schema": "finance"},
     )
 
-    ticker = Column(String(10), nullable=False)
+    ticker = Column(String(20), nullable=False)
     frequency = Column(String(10), nullable=False)
     report_date = Column(Date, nullable=False)
     metric = Column(String(100), nullable=False)
@@ -81,7 +81,7 @@ class ActiveTickers(Base):
         {"schema": "finance"},
     )
 
-    ticker = Column(String(10), nullable=False)
+    ticker = Column(String(20), nullable=False)
     name = Column(String(200))
     exchange = Column(String(50))
     category_name = Column(String(100))
