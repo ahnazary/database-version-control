@@ -1,4 +1,5 @@
 from sqlalchemy import (
+    Boolean,
     Column,
     Date,
     DateTime,
@@ -71,3 +72,19 @@ class Financials(Base):
     metric = Column(String(100), nullable=False)
     value = Column(Float)
     insert_datetime = Column(DateTime, nullable=False, server_default=func.now())
+
+
+class ActiveTickers(Base):
+    __tablename__ = "active_tickers"
+    __table_args__ = (
+        PrimaryKeyConstraint("ticker"),
+        {"schema": "finance"},
+    )
+
+    ticker = Column(String(10), nullable=False)
+    name = Column(String(200))
+    exchange = Column(String(50))
+    category_name = Column(String(100))
+    country = Column(String(50))
+    is_active = Column(Boolean, nullable=False, default=True)
+    upsert_datetime = Column(DateTime, nullable=False, server_default=func.now())
